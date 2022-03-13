@@ -43,6 +43,7 @@ export default {
         // 开始渲染选择的图片
         // 本地路径方法 1
         this.imgStr = window.URL.createObjectURL(e.target.files[0]);
+        this.$bus.$emit('imgStr',this.imgStr)
         // console.log(window.URL.createObjectURL(e.target.files[0])) // 获取当前文件的信息
 
         // // base64方法 2
@@ -60,6 +61,19 @@ export default {
         console.log("大小不合适");
         _this.errorStr = "图片大小超出范围";
       }
+    
+    
+    
+    
+    
+     
+     
+     
+     
+     
+     
+     
+    
     },
   },
 };

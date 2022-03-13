@@ -3,7 +3,7 @@
     <div class="space"></div>
     <!-- 头像区域 -->
     <div class="head">
-      <img src="../assets/getAuthPhoto.png" alt="" />
+      <img :src="$route.query.student.imgStr" alt="" />
     </div>
     <!-- 个人信息区域 -->
     <div class="message">
@@ -233,7 +233,7 @@ body .head img {
   border-radius: 35px;
 }
 body .message {
-  margin-top: 10px;
+  margin-top: 2px;
   background: #ffffff;
 }
 body .message table {

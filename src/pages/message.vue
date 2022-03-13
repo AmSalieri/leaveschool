@@ -39,7 +39,8 @@ export default {
                 because:'',
                 phone:'',
                 address:'',
-                teacher:''
+                teacher:'',
+                imgStr:'../assets/upload.png'
 
             }
         }
@@ -51,6 +52,14 @@ export default {
                 query:{student:this.student}
             });
         }
+    },
+    mounted(){
+        this.$bus.$on('imgStr',(data)=>{
+            this.student.imgStr=data;
+        })
+    },
+    beforeDestroy(){
+        this.$bus.$off('imgStr')
     },
     components: {
         PhotoStu

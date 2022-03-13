@@ -118,12 +118,12 @@
       <div>
         <table rules="cols">
           <tr>
-            <td class="time" valign="top"><span>2021-12-04</span></td>
+            <td class="time" valign="top"><span>{{time}}</span></td>
             <td valign="top"><span>提交申请</span></td>
           </tr>
           <tr>
             <td class="time" valign="top">
-              <span>2021-12-04</span>
+              <span>{{time}}</span>
               <span>19:33:31</span>
             </td>
             <td valign="top">
@@ -191,6 +191,15 @@
         ></span>
       </div>
     </div>
+        <!-- 续假、销假 -->
+    <div class="twojia">
+        <div class="left">
+                定位销假
+        </div>
+        <div class="right">
+            续假申请
+        </div>
+    </div>
   </div>
 </template>
 
@@ -199,21 +208,23 @@ export default {
     name:'QingJia',
     data(){
         return {
-            time:''
+            time:'',
+            time1:''
         }
     },
     created: function() {
     var aData = new Date();
     this.time =
       aData.getFullYear() + "-" + (aData.getMonth() + 1) + "-" + aData.getDate();
+    this.time1 = aData.getFullYear() + "-" + (aData.getMonth() + 1) + "-" + aData.getDate()-1;
   },
 };
 </script>
 
 <style>
 .body {
-  font-family: PingFang SC, Microsoft YaHei;
-  background-color: #f9f9f9;
+  font-family: PingFang SC,Microsoft YaHei;
+  background-color: #F9F9F9;
   overflow: auto;
   height: 100%;
   display: block;
@@ -246,10 +257,10 @@ body .message table tr {
 body .message table tr :first-child {
   width: 96px;
   padding-left: 20px;
-  color: #92969c;
+  color: #92969C;
 }
 body .message table tr :last-child {
-  color: #1e2329;
+  color: #1E2329;
 }
 body .message table .prove {
   height: 46px;
@@ -283,7 +294,7 @@ body .again table tr {
 body .again table tr td {
   width: 96px;
   padding-left: 20px;
-  color: #92969c;
+  color: #92969C;
 }
 body .again table tr td a {
   width: 56px;
@@ -315,7 +326,7 @@ body .check hr {
 body .check div {
   position: relative;
   padding: 8px 0px 0px 20px;
-  color: #92969c;
+  color: #92969C;
   font-size: 14px;
 }
 body .check div span {
@@ -350,4 +361,30 @@ body .check div .biao3 {
   left: 132px;
   top: 166px;
 }
+body .twojia {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  color: #fff;
+  font: Arial 18px;
+}
+body .twojia .left {
+  color: #cecfd1;
+  height: 100%;
+  width: 50%;
+  float: left;
+  background: #efefef;
+  background: rgba(0, 0, 0, 0.05);
+}
+body .twojia .right {
+  height: 100%;
+  width: 50%;
+  background: #52C7CA;
+  float: left;
+}
+
 </style>

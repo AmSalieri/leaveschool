@@ -56,7 +56,7 @@
           <td>{{time}}</td>
         </tr>
         <tr>
-          <td>学生编号请假天数</td>
+          <td>请假天数</td>
           <td>1</td>
         </tr>
         <tr>
@@ -348,17 +348,17 @@ body .check div tr .last {
 }
 body .check div .biao1 {
   position: absolute;
-  left: 132px;
+  left: 119px;
   top: 0px;
 }
 body .check div .biao2 {
   position: absolute;
-  left: 132px;
+  left: 119px;
   top: 62px;
 }
 body .check div .biao3 {
   position: absolute;
-  left: 132px;
+  left: 119px;
   top: 166px;
 }
 body .twojia {

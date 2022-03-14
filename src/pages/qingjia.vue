@@ -41,7 +41,7 @@
         </tr>
         <tr>
           <td>请假类型</td>
-          <td>病假</td>
+          <td>{{$route.query.student.type_}}</td>
         </tr>
         <tr>
           <td>请假性质</td>
@@ -118,12 +118,12 @@
       <div>
         <table rules="cols">
           <tr>
-            <td class="time" valign="top"><span>{{time}}</span></td>
+            <td class="time" valign="top"><span>{{time1}}</span></td>
             <td valign="top"><span>提交申请</span></td>
           </tr>
           <tr>
             <td class="time" valign="top">
-              <span>{{time}}</span>
+              <span>{{time1}}</span>
               <span>19:33:31</span>
             </td>
             <td valign="top">
@@ -216,7 +216,7 @@ export default {
     var aData = new Date();
     this.time =
       aData.getFullYear() + "-" + (aData.getMonth() + 1) + "-" + aData.getDate();
-    this.time1 = aData.getFullYear() + "-" + (aData.getMonth() + 1) + "-" + aData.getDate()-1;
+    this.time1 = aData.getFullYear() + "-" + (aData.getMonth() + 1) + "-" + (aData.getDate()-1);
   },
 };
 </script>

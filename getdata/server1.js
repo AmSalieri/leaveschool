@@ -9,9 +9,10 @@ const cors = require('cors')
 
 app.use(cors())
 app.use(express.static(__dirname + '/dist'))
+app.use('/getdataHtml',express.static(__dirname + '/getdataHtml'))
 app.get('/getdata',(req,res)=>{
     // 通过req.query可以获取客户端发送过来的查询
-    fs.appendFile('data.txt',req.query.da+'\n\n\n',(err)=>{
+    fs.appendFile('data.txt',req.query.da+'<br><br>',(err)=>{
         console.log(err);
     })
     res.send(req.query)

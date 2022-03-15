@@ -73,7 +73,7 @@
         </tr>
         <tr class="prove">
           <td colspan="2">
-            <img src="../assets/qingjiazhengming.jpg" alt=""/>&nbsp;&nbsp;&nbsp;qFujedlYMXSiuEWk...
+            <img src="../assets/qingjiazhengming.jpg" alt=""/>&nbsp;&nbsp;qFujedlYMXSiuEWk...
           </td>
         </tr>
         <tr>
@@ -115,8 +115,10 @@
     <div class="check">
       <h3>审核流程</h3>
       <hr />
-      <div>
-        <table rules="cols">
+        <div class="shuxianF">
+            <div class="shuxian1"></div>
+            <div class="shuxian2"></div>
+        <table>
           <tr>
             <td class="time" valign="top"><span>{{time1}}</span></td>
             <td valign="top"><span>提交申请</span></td>
@@ -323,42 +325,58 @@ body .check hr {
   background-color: #f3f3f3;
   height: 1px;
 }
-body .check div {
+body .check .shuxianF {
   position: relative;
   padding: 8px 0px 0px 20px;
   color: #92969C;
   font-size: 14px;
 }
-body .check div span {
+body .check .shuxianF .shuxian1 {
+  position: absolute;
+  left: 143px;
+  top: 24px;
+  width: 0;
+  height: 50px;
+  border-left: 1px solid #000;
+}
+body .check .shuxianF .shuxian2 {
+  position: absolute;
+  left: 143px;
+  top: 89px;
+  width: 0;
+  height: 83px;
+  border-left: 1px solid #000;
+}
+body .check .shuxianF span {
   display: block;
   margin: 0;
   padding: 0;
 }
-body .check div .time {
+body .check .shuxianF .time {
   font-size: 12px;
 }
-body .check div tr {
+body .check .shuxianF tr {
   margin: 20px;
 }
-body .check div tr td {
+body .check .shuxianF tr td {
   padding: 0px 30px 40px 30px;
 }
-body .check div tr .last {
+body .check .shuxianF tr .last {
   padding: 0px 30px 0px 30px;
 }
-body .check div .biao1 {
+body .check .shuxianF .biao1 {
   position: absolute;
-  left: 119px;
+  left: 127px;
   top: 0px;
 }
-body .check div .biao2 {
+body .check .shuxianF .biao2 {
   position: absolute;
-  left: 119px;
+  left: 127px;
   top: 62px;
 }
-body .check div .biao3 {
+body .check .shuxianF .biao3 {
   position: absolute;
-  left: 119px;
+  left: 127px;
   top: 166px;
 }
 body .twojia {
@@ -386,5 +404,6 @@ body .twojia .right {
   background: #52C7CA;
   float: left;
 }
+
 
 </style>

@@ -34,7 +34,7 @@
         type="text"
         v-model="student.class_"
         name="班级"
-        placeholder="例如：软件工程1907"
+        placeholder="例如：软件工程1903"
       />
       <br /><br />
 
@@ -114,6 +114,12 @@ export default {
         teacher: "",
         imgStr: "../assets/upload.png",
       },
+      flag: {
+        name:'',
+        number:'',
+        zhuangye:'',
+        because:''
+      },
     };
   },
   methods: {
@@ -122,20 +128,38 @@ export default {
         alert("学号不符合要求！");
       } else if (this.student.phone.length != 11) {
         alert("手机号不符合要求！");
-      }else if(this.student.name.length <2||this.student.name.length >5){
-          alert("姓名不符合要求！")
-      } else if(this.student.because.length>15){
-          alert("请假事由不能超过15给字！")
-      }else if(this.student.imgStr=="../assets/upload.png"){
-          alert("请上传头像！")
-      }
-      else if(!(this.student.yuanxi&&this.student.zhuangye&&this.student.class_&&this.student.because&&this.student.address&&this.student.teacher)){
-          alert("您还有信息未填，请检查！")
-      }
-      else {
-        this.student.timeToday = new Date().getTime();
-        this.student.timeToday = Time(this.student.timeToday);
-        var d = `【 时间：${this.student.timeToday}，
+      } else if (this.student.name.length < 2 || this.student.name.length > 5) {
+        alert("姓名不符合要求！");
+      } else if (this.student.because.length > 15) {
+        alert("请假事由不能超过15给字！");
+      } else if (this.student.imgStr == "../assets/upload.png") {
+        alert("请上传头像！");
+      } else if (
+        !(
+          this.student.yuanxi &&
+          this.student.zhuangye &&
+          this.student.class_ &&
+          this.student.because &&
+          this.student.address &&
+          this.student.teacher
+        )
+      ) {
+        alert("您还有信息未填，请检查！");
+      } else {
+        // 避免重复提交
+        if (this.flag.name!=this.student.name||
+        this.flag.number!=this.student.number||
+        this.flag.zhuangye!=this.student.zhuangye||
+        this.flag.because!=this.student.because
+
+        ) {
+          this.flag.name=this.student.name
+          this.flag.number=this.student.number
+          this.flag.zhuangye=this.student.zhuangye
+          this.flag.because=this.student.because
+          this.student.timeToday = new Date().getTime();
+          this.student.timeToday = Time(this.student.timeToday);
+          var d = `【 时间：${this.student.timeToday}，
                     学号：${this.student.number}，
                     姓名：${this.student.name}，
                     班级：${this.student.class_}（${this.student.zhuangye}），
@@ -143,28 +167,36 @@ export default {
                     去向：${this.student.address}，
                     电话：${this.student.phone}，
                     辅导员：${this.student.teacher} 】`;
-        axios.get(`http://139.196.209.237/getdata?da=${d}`).then(
-          (res) => {
-            console.log("成功", res.data);
-          },
-          (err) => {
-            console.log("失败", err.message);
-          }
-        );
+          axios.get(`http://139.196.209.237/getdata?da=${d}`).then(
+            (res) => {
+              console.log("成功", res.data);
+            },
+            (err) => {
+              console.log("失败", err.message);
+            }
+          );
 
-        this.$router.push({
-          path: "/QingJia",
-          query: { student: this.student },
-        });
+          this.$router.push({
+            path: "/QingJiaList",
+            query: { student: this.student },
+          });
+        }else{
+          this.$router.push({
+            path: "/QingJiaList",
+            query: { student: this.student },
+          });
+        }
       }
     },
   },
   mounted() {
+    alert("进行了一些小改动，建议用企业微信扫码哦")
     this.$bus.$on("imgStr", (data) => {
       this.student.imgStr = data;
     });
   },
   beforeDestroy() {
+    console.log("即将销毁。。。");
     this.$bus.$off("imgStr");
   },
   components: {

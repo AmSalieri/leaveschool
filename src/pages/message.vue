@@ -1,7 +1,8 @@
 <template>
-  <div>
-    个人照片：<PhotoStu></PhotoStu>
-    <form>
+  <div class="bg">
+    
+    <form class="quanju">
+      个人照片：<PhotoStu></PhotoStu>
       <br />学号：<input
         type="number"
         v-model="student.number"
@@ -84,6 +85,7 @@
       <br /><br />
       <br />
       <input
+        class="btn"
         type="button"
         value="---- 点击生成假条 ----"
         @click="goqingjia()"
@@ -206,8 +208,30 @@ export default {
 </script>
 
 <style>
+.bg{
+  background: #555555;
+  height: 100%;
+  font: 18px "PingFang SC", "Microsoft YaHei";
+  color:#888;
+}
+.quanju{
+  padding: 30px;
+}
 #bec {
   width: 250px;
   height: 40px;
+}
+.btn{
+  
+border: none;
+background-color: transparent;
+outline: none;  
+  background: #ffcc02;
+  font-size: 18px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  width: 90%;
+  height: 50px;
+  border-radius: 10px;
 }
 </style>

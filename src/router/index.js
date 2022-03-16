@@ -2,6 +2,7 @@ import VueRouter from "vue-router";
 import MessageStu from '../pages/message.vue'
 import QingJia from '../pages/qingjia.vue'
 import QingJiaList from '../pages/qingjialist.vue'
+import LiuYan from '../pages/liuyan.vue'
 // 创建并暴露一个路由器
 export default new VueRouter({
     routes:[
@@ -19,6 +20,9 @@ export default new VueRouter({
         {
             path:'/QingJia',
             component:QingJia
+        },{
+            path:'/LiuYan',
+            component:LiuYan
         }
     ]
 })

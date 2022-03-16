@@ -36,7 +36,7 @@
         <div class="date">2021-11-12 至 2022-11-12 / 共1天</div>
       </div>
       <div class="end">没有更多啦~</div>
-      <img id="imgJia" src="../assets/jia.png" alt="" />
+      <img id="imgJia" src="../assets/jia.png" alt="" @click="goLiuyan()"/>
     </div>
   </div>
 </template>
@@ -87,6 +87,12 @@ export default {
         query: { student: this.cloneStudent },
       });
     },
+    goLiuyan(){
+      this.$router.push({
+        path: "/LiuYan",
+        query: { student: this.cloneStudent },
+      });
+    }
   },
 };
 </script>

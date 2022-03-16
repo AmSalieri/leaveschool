@@ -344,7 +344,7 @@ body .check .shuxianF .shuxian2 {
   left: 143px;
   top: 89px;
   width: 0;
-  height: 83px;
+  height: 98px;
   border-left: 1px solid #000;
 }
 body .check .shuxianF span {
@@ -377,7 +377,7 @@ body .check .shuxianF .biao2 {
 body .check .shuxianF .biao3 {
   position: absolute;
   left: 127px;
-  top: 166px;
+  top: 182px;
 }
 body .twojia {
   position: fixed;

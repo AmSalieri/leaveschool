@@ -106,4 +106,7 @@ export default {
   color: tomato;
   margin-left: 10px;
 }
+img{
+  border-radius: 50%;
+}
 </style>

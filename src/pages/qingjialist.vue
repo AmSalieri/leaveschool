@@ -2,6 +2,38 @@
   <div>
     <!-- 背景 -->
     <div class="app">
+      <!-- 遮罩层 -->
+      <div class="zhe" v-if="flag">
+        <div class="shengming">
+          <h2 style="font-size: 28px;text-align:center;line-height:100px">本人声明</h2>
+          <hr>
+          <p 
+          style="
+          font-size: 20px;
+          line-height:40px;
+          margin: 25px 20px 20px 25px;
+          padding:10px;
+          border:2px solid black;">
+            此网页是本人为巩固所学知识而练习制作的一个小demo，仅供学习和参考。请通过正规途径请假，遵守校纪校规，支持学校的防疫工作。</p>
+          <hr>
+          <button 
+          @click="flag=false"
+          style="
+            width:70%;
+            height:70px;
+            margin: 10px 15% 0px 15%;
+            border-radius: 15px;
+            border: none;
+            background-color: #3897fe;
+            outline: none;  
+            font-size:10px
+          "><span style="
+            font-size:34px
+          ">确认</span><span  style="
+            font-size:8px
+          ">之</span>好的，我知道了，我明白了，我清楚了，我保证遵守校纪校规</button>
+        </div>
+      </div>
       <!-- 内容 -->
       <div class="first" @click="goQingjia()">
         <div class="sick">{{cloneStudent.type_}}</div>
@@ -36,7 +68,7 @@
         <div class="date">2021-11-12 至 2022-11-12 / 共1天</div>
       </div>
       <div class="end">没有更多啦~</div>
-      <img id="imgJia" src="../assets/jia.png" alt="" @click="goLiuyan()"/>
+      <img id="imgJia" ref='imgJia' src="../assets/jia.png" alt="" @click="goLiuyan()"/>
     </div>
   </div>
 </template>
@@ -48,12 +80,26 @@ export default {
     return {
       cloneStudent: {},
       time:'',
+      flag:true,  //遮罩层开关
+      tt:58,
+      timer:undefined
     };
   },
-  // mounted(){
-  //     console.log(this.cloneStudent);
-  //     this.cloneStudent=this.$route.query.student
-  // },
+  mounted(){
+    // 让右下角的加号动起来
+    this.timer=setInterval(()=>{
+      this.tt+=1
+      this.$refs.imgJia.style.width = this.tt+'px'
+      this.$refs.imgJia.style.height = this.tt+'px'
+      if(this.tt>=80)this.tt=58
+    },70)
+      
+  },
+  deactivated(){
+    clearInterval(this.timer)
+    this.$refs.imgJia.style.width = '58px'
+    this.$refs.imgJia.style.height = '58px'
+  },
   // activated(){
   //     console.log('12221');
   //     this.cloneStudent=this.$route.query.student
@@ -92,7 +138,7 @@ export default {
         path: "/LiuYan",
         query: { student: this.cloneStudent },
       });
-    }
+    },
   },
 };
 </script>
@@ -169,5 +215,26 @@ export default {
   bottom: 18px;
   width: 58px;
   height: 58px;
+}
+.zhe{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 100;
+}
+.shengming{
+  width: 300px;
+  height: 500px;
+  background: skyblue;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  margin-left:-150px;
+  margin-top:-250px;
+  border-radius: 15px;
+  z-index: 101;
 }
 </style>

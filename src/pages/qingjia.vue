@@ -337,7 +337,7 @@ body .check .shuxianF .shuxian1 {
   top: 24px;
   width: 0;
   height: 50px;
-  border-left: 1px solid #000;
+  border-left: 1px solid #eeeeee;
 }
 body .check .shuxianF .shuxian2 {
   position: absolute;
@@ -345,7 +345,7 @@ body .check .shuxianF .shuxian2 {
   top: 89px;
   width: 0;
   height: 98px;
-  border-left: 1px solid #000;
+  border-left: 1px solid #eeeeee;
 }
 body .check .shuxianF span {
   display: block;

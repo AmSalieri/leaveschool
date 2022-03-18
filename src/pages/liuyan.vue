@@ -19,7 +19,9 @@
       />
       <br />
       <br />
-      <br /><button @click="tijiao()" class="btn">提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交</button>
+      <br /><button @click="tijiao()" class="btn">
+        提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交
+      </button>
     </div>
   </div>
 </template>
@@ -30,15 +32,14 @@ export default {
   name: "LiuYan",
   data() {
     return {
+      // 留言数据
       content: "",
       name: "",
       contactWay: "",
     };
   },
-  mounted() {
-    console.log(this.$route.query.student, 12212);
-  },
   methods: {
+    // 留言提交
     tijiao() {
       if (this.content == "") {
         alert("留言不能为空哦");
@@ -89,14 +90,10 @@ export default {
   font: 18px "PingFang SC", "Microsoft YaHei";
   color: #888;
 }
-.quanju{
-  padding: 30px;
-}
-.btn{
-  
-border: none;
-background-color: transparent;
-outline: none;  
+.btn {
+  border: none;
+  background-color: transparent;
+  outline: none;
   background: #ffcc02;
   font-size: 22px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

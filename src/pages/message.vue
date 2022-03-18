@@ -2,6 +2,13 @@
   <div class="bg">
     
     <form class="quanju">
+       <p style="
+       width: 100%;
+  height: 16px;
+  text-align: center;
+  font-size: 12px;
+  color:#92969c;
+     margin:0px 0 10px  ">建议用企业微信扫码~</p>
       个人照片：<PhotoStu></PhotoStu>
       <br />学号：<input
         type="number"
@@ -68,7 +75,7 @@
         placeholder="例如：17398224569"
       />
       <br /><br />
-      请假去向地点：<input
+      去向地：<input
         type="text"
         v-model="student.address"
         name="address"
@@ -84,12 +91,14 @@
       />
       <br /><br />
       <br />
+     
       <input
         class="btn"
         type="button"
         value="---- 点击生成假条 ----"
         @click="goqingjia()"
       />
+      
     </form>
   </div>
 </template>
@@ -126,7 +135,7 @@ export default {
   },
   methods: {
     goqingjia() {
-      if (this.student.number.length != 11) {
+      if (this.student.number.length != 11 && this.student.number.length != 9) {
         alert("学号不符合要求！");
       } else if (this.student.phone.length != 11) {
         alert("手机号不符合要求！");
@@ -192,7 +201,7 @@ export default {
     },
   },
   mounted() {
-    alert("进行了一些小改动，建议用企业微信扫码哦")
+    // alert("进行了一些小改动，建议用企业微信扫码哦")
     this.$bus.$on("imgStr", (data) => {
       this.student.imgStr = data;
     });
@@ -215,7 +224,7 @@ export default {
   color:#888;
 }
 .quanju{
-  padding: 30px;
+  padding: 0px 0 0 30px;
 }
 #bec {
   width: 250px;
@@ -233,5 +242,12 @@ outline: none;
   width: 90%;
   height: 50px;
   border-radius: 10px;
+}
+input{
+  border: none;
+background-color:#d6d6d6;
+outline: none;  
+  border-radius: 6px;
+  height: 20px;
 }
 </style>

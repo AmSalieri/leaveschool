@@ -4,7 +4,8 @@
     <div class="app">
       <!-- 遮罩层 -->
       <div class="zhe" v-if="flag">
-        <div class="shengming">
+        <!-- 声明 -->
+        <!-- <div class="shengming">
           <h2 style="font-size: 28px;text-align:center;line-height:100px">本人声明</h2>
           <hr>
           <p 
@@ -32,18 +33,48 @@
           ">确认</span><span  style="
             font-size:8px
           ">之</span>好的，我知道了，我明白了，我清楚了，我保证遵守校纪校规</button>
+        </div> -->
+      <!-- 提示 -->
+      <div class="shengming">
+          <h2 style="font-size: 40px;text-align:center;line-height:100px">提示</h2>
+          <hr>
+          <p 
+          style="
+          font-size: 40px;
+          line-height:60px;
+          margin: 25px 20px 20px 25px;
+          padding:10px;
+          border:2px solid black;">
+            特殊原因，暂时关闭，如有问题，“＋”号反馈。</p>
+          <hr>
+          <button 
+          @click="flag=false"
+          style="
+            width:70%;
+            height:70px;
+            margin: 10px 15% 0px 15%;
+            border-radius: 15px;
+            border: none;
+            background-color: #3897fe;
+            outline: none;  
+            font-size:10px;
+            line-height:70px;
+          "><span style="
+            font-size:50px
+          ">确&nbsp;&nbsp;&nbsp;&nbsp;认</span></button>
         </div>
       </div>
       <!-- 内容 -->
       <div class="first" @click="goQingjia()">
         <div class="sick">{{cloneStudent.type_}}</div>
         <div class="clearSick">
-          已通过
-          <div class="yuanDian"></div>
+          未通过
+          <div class="yuanDian" style="background-color: red;"></div>
         </div>
         <div class="date">{{time}} 至 {{time}} / 共1天</div>
       </div>
-      <div class="first">
+      <!-- 历史记录 （特殊原因，注释了）-->
+     <!-- <div class="first">
         <div class="sick">病假</div>
         <div class="clearSick">
           已销假
@@ -51,7 +82,7 @@
         </div>
         <div class="date">2022-3-12 至 2022-3-12 / 共1天</div>
       </div>
-      <div class="first">
+       <div class="first">
         <div class="sick">病假</div>
         <div class="clearSick">
           已销假
@@ -66,7 +97,7 @@
           <div class="yuanDian"></div>
         </div>
         <div class="date">2021-11-12 至 2022-11-12 / 共1天</div>
-      </div>
+      </div> -->
       <div class="end">没有更多啦~</div>
       <img id="imgJia" ref='imgJia' src="../assets/jia.png" alt="" @click="goLiuyan()"/>
     </div>
@@ -94,6 +125,9 @@ export default {
       if(this.tt>=80)this.tt=58
     },70)
       
+  },
+  activated(){
+    this.flag=true;
   },
   deactivated(){
     clearInterval(this.timer)
@@ -129,8 +163,12 @@ export default {
   methods: {
     goQingjia() {
       this.$router.push({
-        path: "/QingJia",
-        query: { student: this.cloneStudent },
+        // 正常使用时
+        // path: "/QingJia",
+        // query: { student: this.cloneStudent },
+
+        // 特殊情况时，传到message页面
+        path: "/MessageStu",
       });
     },
     goLiuyan(){

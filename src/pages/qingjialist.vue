@@ -22,7 +22,7 @@
           style="
             width:70%;
             height:70px;
-            margin: 10px 15% 0px 15%;
+            margin: 10px 15% 10px 15%;
             border-radius: 15px;
             border: none;
             background-color: #3897fe;
@@ -52,7 +52,7 @@
           style="
             width:70%;
             height:70px;
-            margin: 10px 15% 0px 15%;
+            margin: 10px 15% 10px 15%;
             border-radius: 15px;
             border: none;
             background-color: #3897fe;
@@ -265,7 +265,7 @@ export default {
 }
 .shengming{
   width: 300px;
-  height: 500px;
+  /* height: 500px; */
   background: skyblue;
   position: absolute;
   left: 50%;
